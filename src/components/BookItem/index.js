@@ -1,12 +1,14 @@
+import "./index.css";
+
 const BookItem = (props) => {
   const { bookItemDetails } = props;
   const { title, subtitle, image, price } = bookItemDetails;
   return (
-    <li>
-      <img src={image} alt="book" />
-      <p>{title}</p>
-      <p>{subtitle}</p>
-      <p>{price}</p>
+    <li className="book-item">
+      <img className="book-image" src={image} alt="book" />
+      <p className="book-title">{title}</p>
+      <p className="book-subtitle">{subtitle}</p>
+      <p className="book-price">{price}</p>
     </li>
   );
 };

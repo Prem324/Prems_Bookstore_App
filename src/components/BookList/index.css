@@ -1,0 +1,41 @@
+.search-bar-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+
+  padding-right: 80px;
+  margin-top: 30px;
+}
+
+.search-input {
+  border: 1px solid gray;
+  border-radius: 10px 0px 0px 10px;
+  width: 260px;
+  padding-left: 10px;
+  font-size: 18px;
+  border-right: none;
+}
+
+.search-icon {
+  width: 24px;
+  height: 24px;
+  background-color: black;
+  color: #ffffff;
+  padding: 10px;
+  border-radius: 0px 10px 10px 0px;
+}
+
+.books-heading {
+  font-size: 40px;
+  font-weight: 600;
+  padding-left: 80px;
+}
+
+.books-list-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding-top: 30px;
+}

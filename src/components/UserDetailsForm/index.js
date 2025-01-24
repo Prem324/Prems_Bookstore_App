@@ -1,14 +1,14 @@
 import { Component } from "react";
 import "./index.css";
 
-class Checkout extends Component {
+class UserDetailsForm extends Component {
   render() {
     return (
       <div>
-        <h1>Checkout</h1>
+        <p>UserDetailsForm</p>
       </div>
     );
   }
 }
 
-export default Checkout;
+export default UserDetailsForm;

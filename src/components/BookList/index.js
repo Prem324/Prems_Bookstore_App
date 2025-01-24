@@ -1,6 +1,9 @@
 import { Component } from "react";
 import Header from "../Header";
 import BookItem from "../BookItem";
+import { FaSearch } from "react-icons/fa";
+
+import "./index.css";
 
 class BookList extends Component {
   state = {
@@ -36,18 +39,25 @@ class BookList extends Component {
   render() {
     const { booksList } = this.state;
     return (
-      <div>
+      <>
         <Header />
-        <h1>BooksList</h1>
-        <ul>
-          {booksList.map((eachBookItem) => (
-            <BookItem
-              key={eachBookItem.isbn13}
-              bookItemDetails={eachBookItem}
-            />
-          ))}
-        </ul>
-      </div>
+        <div className="books-container">
+          <div className="search-bar-container">
+            <input placeholder="Search here" className="search-input" />
+            <FaSearch className="search-icon" />
+          </div>
+          <p className="books-heading">Books</p>
+
+          <ul className="books-list-container">
+            {booksList.map((eachBookItem) => (
+              <BookItem
+                key={eachBookItem.isbn13}
+                bookItemDetails={eachBookItem}
+              />
+            ))}
+          </ul>
+        </div>
+      </>
     );
   }
 }
