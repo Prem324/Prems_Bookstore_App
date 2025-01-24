@@ -1,0 +1,10 @@
+.loader-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.loader-text {
+  font-size: 80px;
+  color: black;
+}

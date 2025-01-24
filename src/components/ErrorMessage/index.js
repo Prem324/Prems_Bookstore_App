@@ -2,8 +2,8 @@ import "./index.css";
 
 const ErrorMessage = () => {
   return (
-    <div>
-      <p>Something Went Wrong....</p>
+    <div className="error-message-container">
+      <p className="error-msg-content">Something Went Wrong....</p>
     </div>
   );
 };

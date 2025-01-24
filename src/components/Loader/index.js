@@ -2,8 +2,8 @@ import "./index.css";
 
 const Loader = () => {
   return (
-    <div>
-      <p>Loading.....</p>
+    <div className="loader-container">
+      <p className="loader-text">Loading....</p>
     </div>
   );
 };

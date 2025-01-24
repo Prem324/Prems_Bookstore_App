@@ -1,12 +1,22 @@
 import { Component } from "react";
 import Header from "../Header";
+import SearchInput from "../SearchInput";
+import PriceRange from "../PriceRange";
 import BookItem from "../BookItem";
-import { FaSearch } from "react-icons/fa";
+import Loader from "../Loader";
+import ErrorMessage from "../ErrorMessage";
 
 import "./index.css";
 
+const apiStatusConstants = {
+  initial: "INITIAL",
+  inProgress: "IN_Progress",
+  success: "SUCCESS",
+  failure: "FAILURE",
+};
 class BookList extends Component {
   state = {
+    apiStatus: apiStatusConstants.initial,
     booksList: [],
   };
 
@@ -15,6 +25,7 @@ class BookList extends Component {
   };
 
   getBooksList = async () => {
+    this.setState({ apiStatus: apiStatusConstants.inProgress });
     const booksListApiUrl = "https://api.itbook.store/1.0/new";
     const options = {
       method: "GET",
@@ -32,31 +43,61 @@ class BookList extends Component {
         subtitle: eachBook.subtitle,
         price: eachBook.price,
       }));
-      this.setState({ booksList: updatedData });
+      this.setState({
+        booksList: updatedData,
+        apiStatus: apiStatusConstants.success,
+      });
+    } else if (booksListApiResponse.status === 404) {
+      this.setState({ apiStatus: apiStatusConstants.failure });
+    }
+  };
+
+  renderLoadingView() {
+    return <Loader />;
+  }
+
+  renderSuccessView() {
+    const { booksList } = this.state;
+    return (
+      <div>
+        <p className="books-heading">Books</p>
+        <PriceRange />
+        <ul className="books-list-container">
+          {booksList.map((eachBookItem) => (
+            <BookItem
+              key={eachBookItem.isbn13}
+              bookItemDetails={eachBookItem}
+            />
+          ))}
+        </ul>
+      </div>
+    );
+  }
+
+  renderFailureView() {
+    return <ErrorMessage />;
+  }
+
+  renderResults = () => {
+    const { apiStatus } = this.state;
+    switch (apiStatus) {
+      case apiStatusConstants.inProgress:
+        return this.renderLoadingView();
+      case apiStatusConstants.success:
+        return this.renderSuccessView();
+      case apiStatusConstants.failure:
+        return this.renderFailureView();
+      default:
+        return null;
     }
   };
 
   render() {
-    const { booksList } = this.state;
     return (
       <>
         <Header />
-        <div className="books-container">
-          <div className="search-bar-container">
-            <input placeholder="Search here" className="search-input" />
-            <FaSearch className="search-icon" />
-          </div>
-          <p className="books-heading">Books</p>
-
-          <ul className="books-list-container">
-            {booksList.map((eachBookItem) => (
-              <BookItem
-                key={eachBookItem.isbn13}
-                bookItemDetails={eachBookItem}
-              />
-            ))}
-          </ul>
-        </div>
+        <SearchInput />
+        <div>{this.renderResults()}</div>
       </>
     );
   }
