@@ -1,5 +1,6 @@
 import { Component } from "react";
 import Header from "../Header";
+import { Link } from "react-router";
 import "./index.css";
 
 class Home extends Component {
@@ -21,7 +22,9 @@ class Home extends Component {
             covering numerous topics. Our stores are thoughtfully designed
             allowing you explore books whenever and wherever you are.
           </p>
-          <button className="explore-button">Explore Books</button>
+          <Link to="/book">
+            <button className="explore-button">Explore Books</button>
+          </Link>
         </div>
       </div>
     );
