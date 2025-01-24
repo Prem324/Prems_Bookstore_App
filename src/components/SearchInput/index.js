@@ -4,12 +4,36 @@ import { FaSearch } from "react-icons/fa";
 import "./index.css";
 
 class SearchInput extends Component {
+  state = { searchInputValue: "" };
+
+  onChangeSearchInput = (event) => {
+    this.setState({ searchInputValue: event.target.value });
+  };
+
+  onSubmitSearchInput = (event) => {
+    event.preventDefault();
+    const { searchBooks } = this.props;
+    const { searchInputValue } = this.state;
+    searchBooks(searchInputValue);
+  };
   render() {
+    const { searchInputValue } = this.state;
     return (
-      <div className="search-bar-container">
-        <input placeholder="Search here" className="search-input" />
-        <FaSearch className="search-icon" />
-      </div>
+      <form
+        className="search-bar-container"
+        onSubmit={this.onSubmitSearchInput}
+      >
+        <input
+          type="text"
+          value={searchInputValue}
+          placeholder="Search here"
+          className="search-input"
+          onChange={this.onChangeSearchInput}
+        />
+        <button className="search-button">
+          <FaSearch className="search-icon" />
+        </button>
+      </form>
     );
   }
 }

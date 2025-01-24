@@ -16,11 +16,15 @@
   border-right: none;
 }
 
+.search-button {
+  background-color: black;
+  border-radius: 0px 10px 10px 0px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
 .search-icon {
   width: 24px;
   height: 24px;
-  background-color: black;
   color: #ffffff;
-  padding: 10px;
-  border-radius: 0px 10px 10px 0px;
 }

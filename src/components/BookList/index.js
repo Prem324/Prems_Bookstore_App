@@ -24,9 +24,14 @@ class BookList extends Component {
     this.getBooksList();
   };
 
-  getBooksList = async () => {
+  getBooksList = async (searchQuery) => {
     this.setState({ apiStatus: apiStatusConstants.inProgress });
-    const booksListApiUrl = "https://api.itbook.store/1.0/new";
+    let booksListApiUrl = "";
+    if (searchQuery === "") {
+      booksListApiUrl = "https://api.itbook.store/1.0/new";
+    } else {
+      booksListApiUrl = `https://api.itbook.store/1.0/search/${searchQuery}`;
+    }
     const options = {
       method: "GET",
     };
@@ -64,10 +69,7 @@ class BookList extends Component {
         <PriceRange />
         <ul className="books-list-container">
           {booksList.map((eachBookItem) => (
-            <BookItem
-              key={eachBookItem.isbn13}
-              bookItemDetails={eachBookItem}
-            />
+            <BookItem key={eachBookItem.id} bookItemDetails={eachBookItem} />
           ))}
         </ul>
       </div>
@@ -96,7 +98,7 @@ class BookList extends Component {
     return (
       <>
         <Header />
-        <SearchInput />
+        <SearchInput searchBooks={this.getBooksList} />
         <div>{this.renderResults()}</div>
       </>
     );
