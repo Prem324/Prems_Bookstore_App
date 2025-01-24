@@ -9,17 +9,17 @@ class Header extends Component {
       <nav className="navbar-container">
         <div className="header-container">
           <div className="header-left-container">
-            <p className="header-logo">C</p>
-            <p className="header-name">CROSSWORD</p>
+            <p className="header-logo">B</p>
+            <p className="header-name">Bookstore</p>
           </div>
           <ul className="header-right-container">
-            <li className="nav-item">
-              <FaBook className="nav-icon" />
-              <p className="nav-item">Book List</p>
+            <li className="icon-container">
+              <FaBook className="icon" />
+              <p className="icon-name">Book List</p>
             </li>
-            <li className="nav-item">
-              <FaShoppingBag className="nav-icon" />
-              <p className="nav-item">Cart</p>
+            <li className="icon-container">
+              <FaShoppingBag className="icon" />
+              <p className="icon-name">Cart</p>
             </li>
           </ul>
         </div>
