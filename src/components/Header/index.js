@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { FaBook } from "react-icons/fa";
 import { FaShoppingBag } from "react-icons/fa";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import "./index.css";
 
 class Header extends Component {

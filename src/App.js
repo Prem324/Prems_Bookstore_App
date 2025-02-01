@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { BrowserRouter, Routes, Route } from "react-router";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "./components/Home";
 import BookList from "./components/BookList";
 import BookDetails from "./components/BookDetails";
@@ -12,14 +12,14 @@ class App extends Component {
     return (
       <>
         <BrowserRouter>
-          <Routes>
-            <Route exact path="/" Component={Home} />
-            <Route exact path="/book" Component={BookList} />
-            <Route exact path="/book/:id" Component={BookDetails} />
-            <Route exact path="/cart" Component={Cart} />
-            <Route exact path="/checkout" Component={Checkout} />
-            <Route exact path="*" Component={NotFound} />
-          </Routes>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/book" component={BookList} />
+            <Route exact path="/book/:id" component={BookDetails} />
+            <Route exact path="/cart" component={Cart} />
+            <Route exact path="/checkout" component={Checkout} />
+            <Route exact path="*" component={NotFound} />
+          </Switch>
         </BrowserRouter>
       </>
     );

@@ -38,7 +38,6 @@ class BookList extends Component {
 
     const booksListApiResponse = await fetch(booksListApiUrl, options);
     const data = await booksListApiResponse.json();
-    console.log(data);
 
     if (booksListApiResponse.ok === true) {
       const updatedData = data.books.map((eachBook) => ({
