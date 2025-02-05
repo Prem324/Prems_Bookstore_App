@@ -14,14 +14,17 @@ const apiStatusConstants = {
   success: "SUCCESS",
   failure: "FAILURE",
 };
+
+let priceRangeExtreme = [0, 100];
 class BookList extends Component {
   state = {
     apiStatus: apiStatusConstants.initial,
-    booksList: [],
+    booksData: [],
+    priceRangeValue: [0, 0],
   };
 
   componentDidMount = () => {
-    this.getBooksList();
+    this.getBooksList("");
   };
 
   getBooksList = async (searchQuery) => {
@@ -32,15 +35,13 @@ class BookList extends Component {
     } else {
       booksListApiUrl = `https://api.itbook.store/1.0/search/${searchQuery}`;
     }
-    const options = {
-      method: "GET",
-    };
 
-    const booksListApiResponse = await fetch(booksListApiUrl, options);
-    const data = await booksListApiResponse.json();
+    const booksListApiResponse = await fetch(booksListApiUrl);
 
     if (booksListApiResponse.ok === true) {
-      const updatedData = data.books.map((eachBook) => ({
+      const jsonResponse = await booksListApiResponse.json();
+      priceRangeExtreme = this.getPriceRange(jsonResponse.books);
+      const updatedData = jsonResponse.books.map((eachBook) => ({
         id: eachBook.isbn13,
         image: eachBook.image,
         title: eachBook.title,
@@ -48,12 +49,44 @@ class BookList extends Component {
         price: eachBook.price,
       }));
       this.setState({
-        booksList: updatedData,
+        booksData: updatedData,
         apiStatus: apiStatusConstants.success,
+        priceRangeValue: priceRangeExtreme,
       });
     } else if (booksListApiResponse.status === 404) {
       this.setState({ apiStatus: apiStatusConstants.failure });
     }
+    console.log("fetched");
+  };
+
+  getPriceRange = (booksData) => {
+    let [minPrice, maxPrice] = [0, 0];
+    booksData.map((eachBook) => {
+      const price = parseFloat(eachBook.price.slice(1));
+      if (price < minPrice) {
+        minPrice = price;
+      } else if (price > maxPrice) {
+        maxPrice = price;
+      }
+      return null;
+    });
+    priceRangeExtreme = [Math.round(minPrice), Math.round(maxPrice)];
+    return priceRangeExtreme;
+  };
+
+  filterBooksByPriceRange = () => {
+    const { booksData, priceRangeValue } = this.state;
+    const filteredBooks = booksData.filter((eachBook) => {
+      const price = parseFloat(eachBook.price.slice(1));
+      const isPriceInRange =
+        price >= priceRangeValue[0] && price <= priceRangeValue[1];
+      return isPriceInRange;
+    });
+    return filteredBooks;
+  };
+
+  onChangeSliderPosition = (sliderPositions) => {
+    this.setState({ priceRangeValue: sliderPositions });
   };
 
   renderLoadingView() {
@@ -61,13 +94,17 @@ class BookList extends Component {
   }
 
   renderSuccessView() {
-    const { booksList } = this.state;
+    const { priceRangeValue } = this.state;
     return (
       <div>
         <p className="books-heading">Books</p>
-        <PriceRange />
+        <PriceRange
+          sliderExtremes={priceRangeExtreme}
+          sliderPositions={priceRangeValue}
+          onChangeSliderPosition={this.onChangeSliderPosition}
+        />
         <ul className="books-list-container">
-          {booksList.map((eachBookItem) => (
+          {this.filterBooksByPriceRange().map((eachBookItem) => (
             <BookItem key={eachBookItem.id} bookItemDetails={eachBookItem} />
           ))}
         </ul>

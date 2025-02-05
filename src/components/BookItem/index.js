@@ -5,7 +5,7 @@ const BookItem = (props) => {
   const { bookItemDetails } = props;
   const { id, title, subtitle, image, price } = bookItemDetails;
   return (
-    <Link to={`/book/${id}`}>
+    <Link className="link-item" to={`/book/${id}`}>
       <li className="book-item">
         <img className="book-image" src={image} alt="book" />
         <p className="book-title">{title}</p>
