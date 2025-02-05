@@ -3,7 +3,7 @@
   color: #000000;
 }
 .book-item {
-  width: 360px;
+  width: 320px;
   height: 500px;
   display: flex;
   flex-direction: column;

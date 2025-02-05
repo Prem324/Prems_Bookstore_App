@@ -96,7 +96,7 @@ class BookList extends Component {
   renderSuccessView() {
     const { priceRangeValue } = this.state;
     return (
-      <div>
+      <div className="books-container">
         <p className="books-heading">Books</p>
         <PriceRange
           sliderExtremes={priceRangeExtreme}

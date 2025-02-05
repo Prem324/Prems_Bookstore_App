@@ -1,0 +1,84 @@
+.book-details-container {
+  margin: 30px 80px;
+  padding-bottom: 30px;
+}
+
+.book-details {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+.book-details-content {
+  margin-top: 20px;
+}
+
+.title {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 0;
+  padding-bottom: 6px;
+}
+.subtitle {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-bottom: 4px;
+}
+
+.author {
+  font-size: 16px;
+  font-style: italic;
+  color: gray;
+  margin-top: 0;
+}
+
+.year {
+  font-size: 14px;
+}
+
+.price {
+  font-weight: 600;
+  font-size: 24px;
+}
+
+.add-to-cart {
+  border: none;
+  padding: 10px 30px;
+  background-color: rgb(235, 230, 230);
+  border-radius: 6px;
+  font-size: 20px;
+}
+
+.hr-line {
+  margin: 20px 0px;
+}
+
+.product-description-container {
+}
+
+.product-desc-title {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.description {
+}
+
+.product-details-container {
+}
+
+.product-det-title {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+table {
+  width: 40%;
+}
+
+th {
+  text-align: left;
+}
+
+td {
+  padding-left: 10px;
+}

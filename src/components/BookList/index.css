@@ -1,9 +1,10 @@
+.books-container {
+  margin: 30px 80px;
+}
+
 .books-heading {
   font-size: 38px;
   font-weight: 600;
-  padding-left: 80px;
-  margin-bottom: 0;
-  padding-bottom: 18px;
 }
 
 .books-list-container {
@@ -12,5 +13,5 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  padding-top: 30px;
+  margin-top: 40px;
 }
