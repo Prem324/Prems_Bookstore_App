@@ -1,11 +1,11 @@
 .book-details-container {
-  margin: 30px 80px;
+  margin: 30px 30px;
   padding-bottom: 30px;
 }
 
 .book-details {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   margin-bottom: 20px;
 }
 .book-details-content {
@@ -81,4 +81,13 @@ th {
 
 td {
   padding-left: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .book-details-container {
+    margin: 30px 80px;
+  }
+  .book-details {
+    flex-direction: row;
+  }
 }

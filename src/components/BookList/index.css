@@ -1,5 +1,5 @@
 .books-container {
-  margin: 30px 80px;
+  margin: 30px 30px;
 }
 
 .books-heading {
@@ -9,9 +9,18 @@
 
 .books-list-container {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 40px;
+}
+
+@media screen and (min-width: 768px) {
+  .books-container {
+    margin: 30px 80px;
+  }
+  .books-list-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 }
