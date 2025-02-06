@@ -1,24 +1,25 @@
 import React from "react";
 import { FaTrash } from "react-icons/fa";
+import "./index.css";
 
 const CartItem = (props) => {
   const { cartItemDetails } = props;
   const { title, subtitle, image, price } = cartItemDetails;
   return (
-    <div>
-      <img src={image} alt={title} />
-      <div>
-        <h1>{title}</h1>
-        <p>{subtitle}</p>
-        <p>{price}</p>
+    <div className="cart-item-container">
+      <img src={image} alt={title} className="book-image" />
+      <div className="product-info-container">
+        <h1 className="book-title">{title}</h1>
+        <p className="book-subtitle">{subtitle}</p>
+        <p className="book-price">{price}</p>
       </div>
-      <div>
-        <button>
-          <FaTrash />
+      <div className="product-actions-container">
+        <button className="delete-button">
+          <FaTrash className="delete-icon" />
         </button>
       </div>
-      <div>
-        <p>{price}</p>
+      <div className="amount-container">
+        <h1 className="book-price">{price}</h1>
       </div>
     </div>
   );

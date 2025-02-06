@@ -20,20 +20,37 @@ const Cart = () => (
       return (
         <>
           <Header />
-          <div>
-            <div>
-              <h1>{isCartEmpty ? "Your cart is empty!" : "Your Cart"}</h1>
-              <div>
+          <div className="cart-page-container">
+            <div className="cart-content-container">
+              <h1 className="cart-heading">
+                {isCartEmpty ? "Your cart is empty!" : "Your Cart"}
+              </h1>
+              <div className="cart-container">
                 {cartList.map((cartItem) => (
                   <CartItem key={cartItem.isbn13} cartItemDetails={cartItem} />
                 ))}
                 {isCartEmpty ? (
-                  <Link to="/book">
-                    <button>Continue Shopping</button>
+                  <Link to="/book" className="continue-shopping-button-link">
+                    <button className="checkout-button remove-button">
+                      Continue Shopping
+                    </button>
                   </Link>
                 ) : (
-                  <button>Remove all</button>
+                  <button className="remove-button checkout-button">
+                    Remove all
+                  </button>
                 )}
+              </div>
+            </div>
+            <div className="order-content-container">
+              <h1 className="order-title">Order Summary</h1>
+              <div className="order-summary-container">
+                <div className="order-amount-container">
+                  <p className="order-amount">Total Amount</p>
+                  <h1 className="cart-price">Amount Payable</h1>
+                </div>
+                <p className="order-text">(inclusive of all taxes)</p>
+                <button className="checkout-button">Checkout</button>
               </div>
             </div>
           </div>
