@@ -3,8 +3,11 @@ import { FaTrash } from "react-icons/fa";
 import "./index.css";
 
 const CartItem = (props) => {
-  const { cartItemDetails } = props;
+  const { cartItemDetails, handleDelete } = props;
   const { title, subtitle, image, price } = cartItemDetails;
+  const onClickDelete = () => {
+    handleDelete(cartItemDetails);
+  };
   return (
     <div className="cart-item-container">
       <img src={image} alt={title} className="book-image" />
@@ -14,7 +17,7 @@ const CartItem = (props) => {
         <p className="book-price">{price}</p>
       </div>
       <div className="product-actions-container">
-        <button className="delete-button">
+        <button className="delete-button" onClick={onClickDelete}>
           <FaTrash className="delete-icon" />
         </button>
       </div>

@@ -7,7 +7,7 @@ import "./index.css";
 const Cart = () => (
   <CartContext.Consumer>
     {(value) => {
-      const { cartList } = value;
+      const { cartList, resetCart, deleteFromCart } = value;
       const isCartEmpty = cartList.length === 0;
       let total = 0;
       if (!isCartEmpty) {
@@ -27,7 +27,11 @@ const Cart = () => (
               </h1>
               <div className="cart-container">
                 {cartList.map((cartItem) => (
-                  <CartItem key={cartItem.isbn13} cartItemDetails={cartItem} />
+                  <CartItem
+                    key={cartItem.isbn13}
+                    cartItemDetails={cartItem}
+                    handleDelete={deleteFromCart}
+                  />
                 ))}
                 {isCartEmpty ? (
                   <Link to="/book" className="continue-shopping-button-link">
@@ -36,7 +40,10 @@ const Cart = () => (
                     </button>
                   </Link>
                 ) : (
-                  <button className="remove-button checkout-button">
+                  <button
+                    className="remove-button checkout-button"
+                    onClick={resetCart}
+                  >
                     Remove all
                   </button>
                 )}

@@ -19,6 +19,17 @@ class App extends Component {
     }));
   };
 
+  deleteFromCart = (cartItem) => {
+    this.setState((prevState) => ({
+      cartList: prevState.cartList.filter(
+        (eachCartItem) => eachCartItem.isbn13 !== cartItem.isbn13
+      ),
+    }));
+  };
+  resetCart = () => {
+    this.setState({ cartList: [] });
+  };
+
   render() {
     const { cartList } = this.state;
     return (
@@ -26,6 +37,8 @@ class App extends Component {
         value={{
           cartList,
           addToCart: this.addToCart,
+          deleteFromCart: this.deleteFromCart,
+          resetCart: this.resetCart,
         }}
       >
         <BrowserRouter>
