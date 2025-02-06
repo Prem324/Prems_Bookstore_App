@@ -1,6 +1,10 @@
 .navbar-container {
   background-color: rgb(255, 230, 0);
   height: 80px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
 }
 
 .header-container {
@@ -21,27 +25,28 @@
 }
 
 .header-logo {
-  margin-right: 5px;
-  font-size: 28px;
-  font-weight: 600;
-  border: 1px solid black;
-  padding: 4px 8px;
+  width: 60px;
+  height: 60px;
   margin-right: 10px;
 }
 
 .header-name {
   margin-left: 5px;
-  font-size: 20px;
+  font-size: 40px;
+  font-weight: bold;
+  font-family: "Caveat", serif;
+  color: blueviolet;
 }
 
 .header-right-container {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .icon-container {
   list-style-type: none;
-  margin-right: 16px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -52,8 +57,8 @@
   color: #000000;
 }
 .icon {
-  height: 22px;
-  width: 22px;
+  height: 20px;
+  width: 20px;
   margin-right: 4px;
 }
 
@@ -61,6 +66,22 @@
   display: none;
 }
 
+.cart-count {
+  background-color: rgb(205, 245, 245);
+  border-radius: 50%;
+  padding: 0px 4px;
+
+  font-weight: 600;
+  color: rgb(12, 126, 179);
+}
+
+.separation-line {
+  display: flex;
+  flex-direction: column;
+  height: 20px;
+  margin: 0px 10px;
+  border-color: #000000;
+}
 @media screen and (min-width: 768px) {
   .header-container {
     padding-left: 80px;
@@ -69,5 +90,6 @@
   .icon-name {
     display: inline;
     font-size: 18px;
+    font-family: "Bree Serif", serif;
   }
 }

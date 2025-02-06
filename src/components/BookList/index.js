@@ -56,7 +56,6 @@ class BookList extends Component {
     } else if (booksListApiResponse.status === 404) {
       this.setState({ apiStatus: apiStatusConstants.failure });
     }
-    console.log("fetched");
   };
 
   getPriceRange = (booksData) => {
@@ -97,6 +96,7 @@ class BookList extends Component {
     const { priceRangeValue } = this.state;
     return (
       <div className="books-container">
+        <SearchInput searchBooks={this.getBooksList} />
         <p className="books-heading">Books</p>
         <PriceRange
           sliderExtremes={priceRangeExtreme}
@@ -134,7 +134,6 @@ class BookList extends Component {
     return (
       <>
         <Header />
-        <SearchInput searchBooks={this.getBooksList} />
         <div>{this.renderResults()}</div>
       </>
     );

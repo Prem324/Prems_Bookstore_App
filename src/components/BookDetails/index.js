@@ -1,4 +1,6 @@
 import { Component } from "react";
+import { BsPlusSquare, BsDashSquare } from "react-icons/bs";
+
 import Header from "../Header";
 import CartContext from "../../context/CartContext";
 import Loader from "../Loader";
@@ -13,7 +15,11 @@ const apiStatusConstants = {
 };
 
 class BookDetails extends Component {
-  state = { bookDetailsData: {}, apiStatus: apiStatusConstants.initial };
+  state = {
+    bookDetailsData: {},
+    apiStatus: apiStatusConstants.initial,
+    quantity: 1,
+  };
   componentDidMount() {
     this.getBookDetails();
   }
@@ -36,6 +42,17 @@ class BookDetails extends Component {
     }
   };
 
+  onDecrementQuantity = () => {
+    const { quantity } = this.state;
+    if (quantity > 1) {
+      this.setState((prevState) => ({ quantity: prevState.quantity - 1 }));
+    }
+  };
+
+  onIncrementQuantity = () => {
+    this.setState((prevState) => ({ quantity: prevState.quantity + 1 }));
+  };
+
   renderSuccessView() {
     const { bookDetailsData } = this.state;
     return (
@@ -47,8 +64,9 @@ class BookDetails extends Component {
               eachCartItem.isbn13 === this.state.bookDetailsData.isbn13
           );
           const onClickAddToCart = () => {
-            addToCart({ ...this.state.bookDetailsData, quantity: 1 });
+            addToCart({ ...this.state.bookDetailsData, quantity });
           };
+          const { quantity } = this.state;
           return (
             <div className="book-details-container">
               <div className="book-details">
@@ -61,7 +79,28 @@ class BookDetails extends Component {
                     Publication Year: <span>{bookDetailsData.year}</span>
                   </p>
                   <p className="price">{bookDetailsData.price}</p>
-                  <button className="add-to-cart" onClick={onClickAddToCart}>
+                  <div className="quantity-container">
+                    <button
+                      type="button"
+                      className="quantity-controller-button"
+                      onClick={this.onDecrementQuantity}
+                    >
+                      <BsDashSquare className="quantity-controller-icon" />
+                    </button>
+                    <p className="quantity">{quantity}</p>
+                    <button
+                      type="button"
+                      className="quantity-controller-button"
+                      onClick={this.onIncrementQuantity}
+                    >
+                      <BsPlusSquare className="quantity-controller-icon" />
+                    </button>
+                  </div>
+                  <button
+                    className="add-to-cart"
+                    onClick={onClickAddToCart}
+                    disabled={isAddedToCart}
+                  >
                     {isAddedToCart ? "Added to Cart" : "Add to Cart"}
                   </button>
                 </div>
@@ -141,8 +180,6 @@ class BookDetails extends Component {
   }
 
   render() {
-    const { bookDetailsData } = this.state;
-    console.log(bookDetailsData);
     return (
       <>
         <Header />

@@ -12,10 +12,10 @@ const Cart = () => (
       let total = 0;
       if (!isCartEmpty) {
         cartList.map((eachCartItem) => {
-          return (total += parseFloat(eachCartItem.price.slice(1)));
+          return (total +=
+            parseFloat(eachCartItem.price.slice(1)) * eachCartItem.quantity);
         });
       }
-      console.log(total);
 
       return (
         <>
@@ -23,7 +23,7 @@ const Cart = () => (
           <div className="cart-page-container">
             <div className="cart-content-container">
               <h1 className="cart-heading">
-                {isCartEmpty ? "Your cart is empty!" : "Your Cart"}
+                {isCartEmpty ? "Your cart is empty!" : "Your Cart Items"}
               </h1>
               <div className="cart-container">
                 {cartList.map((cartItem) => (
@@ -49,17 +49,30 @@ const Cart = () => (
                 )}
               </div>
             </div>
-            <div className="order-content-container">
-              <h1 className="order-title">Order Summary</h1>
-              <div className="order-summary-container">
-                <div className="order-amount-container">
-                  <p className="order-amount">Total Amount</p>
-                  <h1 className="cart-price">Amount Payable</h1>
+            {!isCartEmpty && (
+              <div className="order-content-container">
+                <h1 className="order-title">Order Summary</h1>
+                <div className="order-summary-container">
+                  <div className="order-amount-container">
+                    <p className="order-amount">Amount Payable:</p>
+                    <h1 className="cart-price">{`$${total}`}</h1>
+                  </div>
+                  <p className="order-text">(inclusive of all taxes)</p>
+                  <button className="checkout-button">
+                    {isCartEmpty ? (
+                      "Checkout"
+                    ) : (
+                      <Link
+                        to="/checkout"
+                        className="link-item checkout-button"
+                      >
+                        Checkout
+                      </Link>
+                    )}
+                  </button>
                 </div>
-                <p className="order-text">(inclusive of all taxes)</p>
-                <button className="checkout-button">Checkout</button>
               </div>
-            </div>
+            )}
           </div>
         </>
       );

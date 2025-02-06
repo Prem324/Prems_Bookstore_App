@@ -1,12 +1,15 @@
 .cart-item-container {
   display: flex;
   flex-direction: row;
-  width: 100%;
   justify-content: stretch;
+  background-color: rgb(238, 234, 234);
+  margin: 20px;
+  padding: 30px;
+  border-radius: 6px;
 }
 
 .cart-book-image {
-  width: 40%;
+  width: 20%;
   max-width: 200px;
 }
 
@@ -36,15 +39,6 @@
 }
 
 .delete-button {
-  background-color: #3e434b;
-  height: 45px;
-  width: 45px;
-  border-radius: 10px;
-  border-width: 0px;
-  padding: 5px;
-}
-
-.delete-button {
   background-color: #630202;
   height: 45px;
   width: 45px;
@@ -63,12 +57,20 @@
   font-size: 20px;
   color: white;
 }
-
-.amount-container {
+.cart-quantity-container {
   display: flex;
-  width: 15%;
-  flex-direction: row;
-  justify-content: end;
   align-items: center;
-  padding: 20px;
+}
+
+.quantity-controller-button {
+  padding: 0;
+}
+
+.cart-quantity {
+  color: #52606d;
+  font-family: "Roboto";
+  font-size: 12px;
+  font-weight: 500;
+  margin: 8px;
+  line-height: 1.3;
 }
