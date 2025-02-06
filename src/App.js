@@ -6,11 +6,28 @@ import BookDetails from "./components/BookDetails";
 import Cart from "./components/Cart";
 import Checkout from "./components/Checkout";
 import NotFound from "./components/NotFound";
+import CartContext from "./context/CartContext";
 
 class App extends Component {
+  state = {
+    cartList: [],
+  };
+
+  addToCart = (bookItem) => {
+    this.setState((prevState) => ({
+      cartList: [...prevState.cartList, bookItem],
+    }));
+  };
+
   render() {
+    const { cartList } = this.state;
     return (
-      <>
+      <CartContext.Provider
+        value={{
+          cartList,
+          addToCart: this.addToCart,
+        }}
+      >
         <BrowserRouter>
           <Switch>
             <Route exact path="/" component={Home} />
@@ -21,7 +38,7 @@ class App extends Component {
             <Route exact path="*" component={NotFound} />
           </Switch>
         </BrowserRouter>
-      </>
+      </CartContext.Provider>
     );
   }
 }
