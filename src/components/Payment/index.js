@@ -107,7 +107,7 @@ class Payment extends Component {
                   <div className="order-details">
                     <p className="payments-sub-heading">Order details:</p>
                     <p>Quality:{cartList.length}</p>
-                    <p>Total Price: Rs{total}/-</p>
+                    <p>Total Price: Rs{parseFloat(total.toFixed(2))}/-</p>
                   </div>
                   <button
                     disabled={paymentMethod === ""}

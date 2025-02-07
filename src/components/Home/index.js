@@ -1,13 +1,15 @@
 import { Component } from "react";
 import Header from "../Header";
 import { Link } from "react-router-dom";
+import bookstore from "../../assets/bookstore1.avif";
 import "./index.css";
 
 class Home extends Component {
   render() {
     return (
-      <div className="home-responsive-container">
+      < >
         <Header />
+        <div className="home-responsive-container">
         <div className="home-container">
           <h1 className="home-heading">Book Store</h1>
           <p className="home-description">
@@ -26,7 +28,11 @@ class Home extends Component {
             <button className="explore-button">Explore Books</button>
           </Link>
         </div>
+        <div className="bookstore-image-container">
+        <img className="homepage-image" src={bookstore} alt="bookstore"/>
+        </div>
       </div>
+      </>
     );
   }
 }

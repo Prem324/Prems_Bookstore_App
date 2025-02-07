@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { FaBook } from "react-icons/fa";
+import { FaBook,FaHome } from "react-icons/fa";
 import { FaShoppingBag } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import CartContext from "../../context/CartContext";
@@ -24,6 +24,13 @@ class Header extends Component {
                   </div>
                 </Link>
                 <ul className="header-right-container">
+                  <Link to="/" className="nav-item">
+                  <li className="icon-container">
+                    <FaHome className="icon"/>
+                    <p className="icon-name">Home</p>
+                  </li>
+                  </Link>
+                  <hr className="separation-line" />
                   <Link to="/book" className="nav-item">
                     <li className="icon-container">
                       <FaBook className="icon" />

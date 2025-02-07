@@ -11,7 +11,7 @@
   justify-self: center;
   width: 100%;
   background-color: #fff6df;
-  padding: 30px 80px;
+  padding: 30px 30px;
 }
 
 .checkout-form {
@@ -27,39 +27,16 @@
   justify-content: start;
 }
 
-.nav-link {
-  text-decoration: none;
-  color: black;
-  display: flex;
-  align-items: center;
-}
-
-.logo-container {
-  display: flex;
-  flex-direction: row;
-}
-
-.logo {
-  width: 30px;
-  height: 40px;
-  border: 1px solid;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: "Roboto";
-  font-weight: 500;
-  margin: 10px;
-}
 
 .checkout-heading {
-  margin-left: 10px;
+  text-align: center;
 }
 
 .summary-container {
   width: 50%;
   border-radius: 10px;
-  background-color: #ffffff;
   margin-left: 30px;
+  margin-top: 30px;
 }
 
 .summary-item-container {
@@ -69,39 +46,70 @@
   justify-content: space-between;
   padding: 10px;
   width: 90%;
+  background-color: #ffffff;
 }
 
 .summary-item-image {
-  width: 120px;
+  width: 100px;
+  height: 100px;
 }
 
 .summary-item-title {
+  display: none;
   font-size: 14px;
   font-weight: 500;
   margin: 0px 10px;
 }
 
 .summary-item-price {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
+  margin-right: 10px;
 }
 
 .summary-total-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 30px 20px 0px 20px;
-  background-color: rgb(208, 238, 250);
+  background-color: #f3f05b;
   border-radius: 6px;
   padding: 0px 20px;
+  margin-top: 20px;
+  
 }
 
 .summary-total-title {
-  font-size: 24px;
+  font-size: 18px;
   font-weight: bold;
+  margin-right: 10px;
 }
 
 .summary-total-price {
-  font-size: 24px;
+  font-size: 18px;
   font-weight: bold;
+}
+
+@media screen and (min-width:768px){
+  .checkout-heading{
+    font-size: 38px;
+  }
+  .summary-item-container{
+    justify-content: flex-start;
+  }
+  .summary-item-image{
+    width: 150px;
+    height: 150px;
+  }
+  .summary-item-title{
+    display: inline;
+    text-align: left;
+    width: 280px;
+  }
+  .summary-item-price{
+    width: 90px;
+    text-align: right;
+  }
+  .summary-total-container{
+    width: 87%;
+  }
 }

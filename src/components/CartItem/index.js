@@ -24,9 +24,9 @@ const CartItem = (props) => (
         <div className="cart-item-container">
           <img src={image} alt={title} className="cart-book-image" />
           <div className="product-info-container">
-            <h1 className="book-title">{title}</h1>
+            <p className="cart-book-title">{title}</p>
             <p className="cart-book-subtitle">{subtitle}</p>
-            <h className="price">{price}</h>
+            <p className="cart-book-price">{price}</p>
           </div>
           <div className="cart-quantity-container">
             <button
@@ -34,7 +34,7 @@ const CartItem = (props) => (
               className="quantity-controller-button"
               onClick={onClickDecrement}
             >
-              <BsDashSquare color="#52606D" size={12} />.
+              <BsDashSquare color="#52606D" size={15} />
             </button>
             <p className="cart-quantity">{quantity}</p>
             <button
@@ -42,7 +42,7 @@ const CartItem = (props) => (
               className="quantity-controller-button"
               onClick={onClickIncrement}
             >
-              <BsPlusSquare color="#52606D" size={12} />.
+              <BsPlusSquare color="#52606D" size={15} />
             </button>
           </div>
           <div className="product-actions-container">

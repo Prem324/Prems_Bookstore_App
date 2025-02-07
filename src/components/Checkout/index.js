@@ -46,7 +46,7 @@ class Checkout extends Component {
                         ))}
                         <div className="summary-total-container">
                           <p className="summary-total-title">Total</p>
-                          <p className="summary-total-price">{`$${total}`}</p>
+                          <p className="summary-total-price">{`$${(parseFloat(total.toFixed(2)))}`}</p>
                         </div>
                       </div>
                     </div>

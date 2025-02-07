@@ -55,7 +55,7 @@ const Cart = () => (
                 <div className="order-summary-container">
                   <div className="order-amount-container">
                     <p className="order-amount">Amount Payable:</p>
-                    <h1 className="cart-price">{`$${total}`}</h1>
+                    <h1 className="cart-price">{`$${parseFloat(total.toFixed(2))}`}</h1>
                   </div>
                   <p className="order-text">(inclusive of all taxes)</p>
                   <button className="checkout-button">

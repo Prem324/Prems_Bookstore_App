@@ -4,13 +4,21 @@
   justify-content: stretch;
   background-color: rgb(238, 234, 234);
   margin: 20px;
-  padding: 30px;
+  padding: 4px;
   border-radius: 6px;
 }
+.cart-book-title{
+  margin: 0;
+  font-size: 15px;
+  font-weight: bold;
 
+}
 .cart-book-image {
-  width: 20%;
+  width: 24%;
   max-width: 200px;
+}
+.cart-book-price{
+  font-weight: 600;
 }
 
 .cart-book-subtitle {
@@ -28,6 +36,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding-top: 20px;
 }
 
 .product-actions-container {
@@ -40,12 +49,13 @@
 
 .delete-button {
   background-color: #630202;
-  height: 45px;
-  width: 45px;
-  border-radius: 10px;
+  height: 34px;
+  width: 34px;
+  border-radius: 8px;
   border-width: 0px;
   padding: 5px;
   transition-duration: 500ms;
+  margin-right: 10px;
 }
 
 .delete-button:hover {
@@ -54,12 +64,13 @@
 }
 
 .delete-icon {
-  font-size: 20px;
+  font-size: 14px;
   color: white;
 }
 .cart-quantity-container {
   display: flex;
   align-items: center;
+  align-self: flex-end;
 }
 
 .quantity-controller-button {
@@ -69,8 +80,33 @@
 .cart-quantity {
   color: #52606d;
   font-family: "Roboto";
-  font-size: 12px;
-  font-weight: 500;
+  font-size: 15px;
+  font-weight: 600;
   margin: 8px;
   line-height: 1.3;
+}
+
+@media screen and (min-width:768px){
+  .cart-book-title{
+    font-size: 24px;
+  }
+  .cart-book-image{
+    height: 200px;
+  }
+  .cart-book-price{
+    margin-top: 0;
+    font-size: 24px;
+  }
+  .delete-button{
+    height: 45px;
+    width: 45px;
+    margin-right: 20px;
+  }
+  .delete-icon{
+    font-size: 20px;
+  }
+  .cart-quantity-container{
+    align-items: center;
+    align-self: center;
+  }
 }

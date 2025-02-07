@@ -1,11 +1,12 @@
 .books-container {
-  margin: 80px 30px;
+  margin: 50px 30px;
   padding-top: 60px;
 }
 
 .books-heading {
   font-size: 38px;
-  font-weight: 600;
+  font-weight: 700;
+  color: rgb(44, 43, 43);
 }
 
 .books-list-container {
@@ -14,6 +15,7 @@
   justify-content: center;
   align-items: center;
   margin-top: 40px;
+  padding-left: 0px;
 }
 
 @media screen and (min-width: 768px) {

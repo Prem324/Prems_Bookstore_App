@@ -14,7 +14,7 @@ class UserDetailsForm extends Component {
     return (
       <>
         <div className="user-form">
-          <h2> Delivery Address and Contact Info </h2>
+          <h2 className="form-heading"> Delivery Address and Contact Info </h2>
           <form onSubmit={this.onSubmitForm}>
             <label className="user-details-form-label">Name </label>
             <br />
@@ -40,7 +40,7 @@ class UserDetailsForm extends Component {
                 type="email"
                 required
                 placeholder="Email"
-                pattern="{@gmail.com}"
+              
               ></input>
             </label>
             <br />
