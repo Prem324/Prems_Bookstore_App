@@ -21,7 +21,7 @@ npm start                           //to start the application
 
 ### Tech Stack
 
-Frontend - ReactJS (React Router, Redux/React Context)
+Frontend - ReactJS (React Router, React Context)
 
 ### Functionality
 
@@ -135,7 +135,8 @@ Reference: https://api.itbook.store
 - Range Slider (rc-slider)
 - React Tooltip (rc-tooltip) for tooltips in Range slider
 - React Router (react-router-dom v5.2.0)
+- React Popup (reactjs-popup)
 
 ### Future Improvements
 
-- Implement User Authentication
+- Implement User Authentication (Login Form)
