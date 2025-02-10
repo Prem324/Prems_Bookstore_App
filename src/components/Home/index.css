@@ -46,6 +46,10 @@
   .explore-button{
     margin-top: 20px;
   }
+  
+}
+
+@media screen and (min-width:1200px){
   .bookstore-image-container{
     display: inline;
     justify-content: center;
@@ -54,6 +58,5 @@
   }
   .homepage-image{
     align-self: center;
-   
   }
 }
